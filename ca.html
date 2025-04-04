@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础和科学计算器</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white p-4 rounded shadow-md w-full max-w-md">
+        <input type="text" id="display" class="w-full p-2 mb-4 text-right text-2xl border border-gray-300 rounded"
+            readonly>
+        <div class="grid grid-cols-4 gap-2">
+            <button onclick="appendToDisplay('7')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">7</button>
+            <button onclick="appendToDisplay('8')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">8</button>
+            <button onclick="appendToDisplay('9')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">9</button>
+            <button onclick="appendToDisplay('/')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">/</button>
+            <button onclick="appendToDisplay('4')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">4</button>
+            <button onclick="appendToDisplay('5')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">5</button>
+            <button onclick="appendToDisplay('6')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">6</button>
+            <button onclick="appendToDisplay('*')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">*</button>
+            <button onclick="appendToDisplay('1')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">1</button>
+            <button onclick="appendToDisplay('2')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">2</button>
+            <button onclick="appendToDisplay('3')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">3</button>
+            <button onclick="appendToDisplay('-')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">-</button>
+            <button onclick="appendToDisplay('0')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">0</button>
+            <button onclick="appendToDisplay('.')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">.</button>
+            <button onclick="calculate()" class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">=</button>
+            <button onclick="appendToDisplay('+')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">+</button>
+        </div>
+        <div class="grid grid-cols-4 gap-2 mt-4">
+            <button onclick="clearDisplay()" class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors duration-200">C</button>
+            <button onclick="appendToDisplay('(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">(</button>
+            <button onclick="appendToDisplay(')')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">)</button>
+            <button onclick="appendToDisplay('%')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">%</button>
+            <button onclick="appendToDisplay('Math.sqrt(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">√</button>
+            <button onclick="appendToDisplay('Math.pow(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">x^y</button>
+            <button onclick="appendToDisplay('Math.sin(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">sin</button>
+            <button onclick="appendToDisplay('Math.cos(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">cos</button>
+            <button onclick="appendToDisplay('Math.tan(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">tan</button>
+            <button onclick="appendToDisplay('Math.log(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">ln</button>
+            <button onclick="appendToDisplay('Math.exp(')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">e^x</button>
+            <button onclick="appendToDisplay('Math.PI')" class="p-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors duration-200">π</button>
+        </div>
+    </div>
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            const display = document.getElementById('display');
+            display.value = '';
+        }
+
+        function calculate() {
+            const display = document.getElementById('display');
+            try {
+                const result = eval(display.value);
+                display.value = result;
+            } catch (error) {
+                display.value = '错误';
+            }
+        }
+    </script>
+</body>
+
+</html>
+    
